@@ -1,14 +1,48 @@
 #!usr/bin/env python
 
-# User information Input
+# User Information
 
-lastName = input("Enter your LAST NAME: ")
-firstName = input("Enter your FIRST NAME: ")
-middleName = input("Enter your MIDDLE NAME: ")
-print(lastName.upper() + ",", firstName.capitalize() + " " + middleName.capitalize()[:1] + ".")
+lastName = input("Enter your Last Name: ")
+firstName = input("Enter your First Name: ")
+middleInitial = input("Enter your Middle Name: ")[:1] 
 
-#Grade input 
-# Data limiting
+print("---------------------------------------------------------------------------------------------------------------------------------------")
+
+
+# Message
+
+msg = "[PLEASE READ CAREFULLY]" + " " + lastName.upper() + ", " + firstName.capitalize() + " " + middleInitial.capitalize() + "." +  """
+                     Enter your data according on your pre-grade results to double check the grades assessment. Please thoroughly
+        input your grades to prevent error or confusion.
+
+                                                                                                              Management
+"""
+print(msg)
+
+#Grades Evaluation
+
+
+
+classStanding = int(input("Enter your CLASS STANDING: "))
+prelimExam = int(input("Enter your PRELIM EXAM SCORE: "))
+prelimGrade = (classStanding + prelimExam) / 2 
+print("Prelim Grade:", (prelimGrade))
+
+print("----------------------------------------------------")
+
+midtermCS = int(input ("Enter your MIDTERM CLASS STANDING: "))
+midtermexam = int(input("Enter your MIDTERM EXAM:  "))
+midtermGrade = (prelimGrade + midtermCS + midtermexam) / 3
+print("Midterm Grade:", midtermGrade)
+
+print("----------------------------------------------------")
+
+finalsCS = int(input("Enter your FINALS CLASS STANDING: "))
+finalsExam = int(input("Enter your FINALS EXAM: "))
+finalsGrade = finalsCS + finalsExam + midtermGrade / 3
+print("Finals Grade:", finalsGrade)
+
+print("----------------------------------------------------")
 
 while True:
     try:
@@ -18,16 +52,15 @@ while True:
         except ValueError:
             print("Invalid input. The number must be in 2 decimal places")
 
- # Grades Equivalent
+# Grades Equivalent
 
- # Data Input
+results = (prelimGrade + midtermGrade + finalsGrade) / 3
+
 if results == 0:
     print("Your grade is Incomplete please appeal on your requirments.")
 elif results == 100:
-    print("Final Grade:", "1.00", "REMARKS:Passed")
-elif results <= 70:
-    print("Final Grade:","3", "REMARKS:Failed")
+    print("Final Grade:", "1.00", "REMARKS: Passed")
 elif results > 75 :
-    print("Your grades is:","2.75", "REMARKS:Passed")
-else:
-    print ("Your grades are currently Incomplete. Please approach your teacher regarding on your grades")
+    print("Your grades is:","2.75", "REMARKS: Passed")
+elif results <= 70:
+    print("Final Grade:","3", "REMARKS: Failed")
