@@ -1,100 +1,98 @@
 #!usr/bin/env python
 
+
 # User Information
- 
+
 lastName = input("Enter your Last Name: ")
 
 firstName = input("Enter your First Name: ")
 
-middleInitial = input("Enter your Middle Name: ")[:1] 
-
-
-
-print("---------------------------------------------------------------------------------------------------------------------------------------")
-
-
-
-
+middleInitial = input("Enter your Middle Name: ")[:1]
 
 # Message
 
-msg = "[PLEASE READ CAREFULLY]" + " " + lastName.upper() + ", " + firstName.capitalize() + " " + middleInitial.capitalize() + "." +  """
 
-                     Enter your data according on your pre-grade results to double check the grades assessment. Please thoroughly
 
-        input your grades to prevent error or confusion.
+msg = "                                              [PLEASE READ CAREFULLY]" + " " + lastName.upper() + ", " + firstName.capitalize() + " " + middleInitial.capitalize() + "." +  """
 
+
+
+                             Enter your data according on your pre-grade results to double check the grades assessment. 
+                     Please thoroughly input your grades to prevent error or confusion.
 
 
                                                                                                               Management
 
+
+
 """
+
+
 
 print(msg)
 
 
 
-#Grades Evaluation
+# Quiz 30%
 
-classStanding = float(input("Enter your CLASS STANDING: "))
+quiz_1 = float(input("Enter your score in Quiz 1: "))
+quiz_2 = float(input("Enter your score in Quiz 2: "))
+quiz_3 = float(input("Enter your score in Quiz 3: "))
+print("------------------------------------------------")
+quiz_grade = ((quiz_1 + quiz_2 + quiz_3) / 3) * 0.300
+print("Grade in Quiz: ", round(quiz_grade, 2))
+print("------------------------------------------------")
 
-prelimExam = float(input("Enter your PRELIM EXAM SCORE: "))
+# Project 30%
 
-prelimGrade = (classStanding + prelimExam) / 2
-
-print("Prelim Grade:", round(prelimGrade, 2))
-
-
-
-print("----------------------------------------------------")
-
-
-
-midtermCS = float(input ("Enter your MIDTERM CLASS STANDING: "))
-
-midtermexam = float(input("Enter your MIDTERM EXAM:  "))
-
-midtermGrade = (prelimGrade + midtermCS + midtermexam) / 3
-
-print("Midterm Grade:", round(midtermGrade, 2))
+project_1 = float(input("Enter your grade in Project 1: "))
+project_2 = float(input("Enter your grade in Project 2: "))
+project_3 = float(input("Enter your grade in Project 3: "))
+print("------------------------------------------------")
+project_grade = ((project_1 + project_2 + project_3) / 3) * 0.300
+print("Grade in Project: ", round(project_grade, 2))
+print("------------------------------------------------")
 
 
 
-print("----------------------------------------------------")
+# Final Grade 10%
+
+finalExam = float(input("Enter your grade in Final Exam: "))
+print("------------------------------------------------")
+finalGrade = finalExam * 0.100
+print("Final Exam: ", round(finalGrade, 2))
+print("------------------------------------------------")
 
 
+# Assignment 10%
 
-finalsCS = float(input("Enter your FINALS CLASS STANDING: "))
+assignment = float(input("Enter your grade in Assignment: "))
+print("------------------------------------------------")
+assignmentGrade = assignment * 0.100
+print("Assignment Grade: ", round(assignmentGrade, 2))
+print("------------------------------------------------")
 
-finalsExam = float(input("Enter your FINALS EXAM: "))
+# Evaluation
 
-finalsGrade = (finalsCS + finalsExam + midtermGrade) / 3
-
-print("Finals Grade:", round(finalsGrade, 2))
-
+results = (finalGrade + assignmentGrade + project_grade + quiz_grade) / 4
+print("Total Grade: ", round(results, 2))
 
 
-print("----------------------------------------------------")
+# Assesment
 
-
-# Grades Equivalent
-
-results = (prelimGrade + midtermGrade + finalsGrade) / 3
-
-if results == 0:
-     print("Your grade is Incomplete please appeal on your requirments.")
-
-elif results > 100:
-    print("Final Grade:", "1.00", "REMARKS: Passed")    
-
-elif results == 100:     
-   print("Final Grade:", "1.00", "REMARKS: Passed")
-    
-elif results > 100:
-    print("Final Grade:", "1.00", "REMARKS: Passed")    
-
-elif results > 75 :
-    print("Your grades is:","2.75", "REMARKS: Passed")
-
-elif results <= 70:
-    print("Final Grade:","5", "REMARKS: Failed")
+print("------------------------------------------------")
+if results == 8:
+    print("Final Grade: 1.0",  "REMARKS: Passed")
+elif results > 8:
+    print("Final Grade: 1.0", "REMARKS: Passed")
+elif results == 7.50:
+    print("Final Grade: 1.50", "REMARKS: Passed") 
+elif results == 7.25:
+    print("Final Grade: 1.25", "REMARKS: Passed")       
+elif results > 6:
+    print("Final Grade: 2.0 ", "REMARKS: Passed")
+elif results > 5:
+    print("Final Grade: 3.0", "REMARKS: Passed")
+elif results < 4:
+    print("Final Grade: 5", "REMARKS: Failed")
+ 
