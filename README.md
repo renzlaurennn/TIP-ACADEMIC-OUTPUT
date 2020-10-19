@@ -1,3 +1,2 @@
-# Technological Institute of the Philippines (T.I.P) - Grading System
- 
- A python program for grading assessment for T.I.P Manila.
+# Technological Institute of the Philippines
+An Programming Exercise for Basic Python Programming
